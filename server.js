@@ -6,7 +6,10 @@ var express = require('express'),
 
 // Create an express instance and set a port variable
 var app = express();
-var port = process.env.PORT || 8080;
+
+// openshift vars
+var port = process.env.OPENSHIFT_NODEJS_PORT || 8080
+var ipAddress = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1'
 
 // Set handlebars as the templating engine
 app.engine('handlebars', exphbs({ defaultLayout: 'main'}));
@@ -24,7 +27,7 @@ app.post('/sub', routes.pub); // callback for new media
 // Set /public as our static content dir
 app.use("/", express.static(__dirname + "/public/"));
 
-// Fire this bitch up (start our server)
-var server = http.createServer(app).listen(port, function() {
-    console.log('Express server listening on port ' + port);
-});
+// start our server
+var server = http.createServer(app).listen(port, ipAddress, function() {
+    console.log('listening on IP: ' + ipAddress + ' Port: ' + port);
+})
