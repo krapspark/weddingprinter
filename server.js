@@ -18,6 +18,9 @@ app.disable('etag');
 // Index Route
 app.get('/', routes.index);
 
+app.get('/sub', routes.sub); // callback from IG initial subscription
+app.post('/sub', routes.pub); // callback for new media
+
 // Set /public as our static content dir
 app.use("/", express.static(__dirname + "/public/"));
 

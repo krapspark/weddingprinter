@@ -9,4 +9,8 @@ module.exports = {
             markup: React.renderComponentToString(PrinterApp())
         });
     },
+    sub: function(req, res) {
+    },
+    pub: function(req, res) {
+    }
 }
