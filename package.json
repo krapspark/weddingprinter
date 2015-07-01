@@ -7,7 +7,7 @@
     "watch": "watchify app.js -o public/js/bundle.js -v",
     "browserify": "browserify app.js | uglifyjs > public/js/bundle.js",
     "build": "npm run browserify ",
-     "start": "node server.js"
+    "start": "node server.js"
   },
   "author": "Samuel Park",
   "license": "MIT",
@@ -32,6 +32,3 @@
     ]
   }
 }
-
-// "start": "npm run watch & nodemon server.js"
-// "start": "node server.js"
